@@ -1,0 +1,17 @@
+<h1>Users#edit</h1>
+
+<%= form_with model: @user do |form| %>
+<%= form.label :Name, style:"" %>
+<%= form.text_field :name,class:"form-control" %>
+
+<%= form.label :Email%>
+<%= form.text_field :email,class:"form-control" %>
+
+<%= form.label :password%>
+<%= form.text_field :password,class:"form-control" %>
+<%= form.submit "Make Changes"%>
+
+<% end%> 
+<%= link_to 'Back', home_index_path%>
+
+

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    
+    <%= image_tag "movie.png", {height:30} %>
+    <h1>
+    <strong>
+    <a class="navbar-brand" href="/movies/" style="color:blue">MOVIESFLIX</a>
+    </strong>
+    </h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+         <h4> 
+            <a class="nav-link active" aria-current="page" href="/home/index">Home</a>
+         </h4>
+        </li>
+        <li class="nav-item">
+          <h4>
+            <a class="nav-link" href="/users">User</a>
+          </h4>
+        </li>
+        <li class="nav-item">
+          <h4>
+            <a class="nav-link" href="/reviews/">Review</a>
+          </h4>
+        </li>
+        <li class="nav-item">
+        <% if current_user.present?%>
+          <h4><a class="nav-link" href="/users/<%= current_user.id%>"><%= current_user.name %></a></h4>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+          <% if current_user %>
+          Logged in as <%= current_user.email %>.
+          <%= link_to ' Log Out', logout_path %>
+          <% else %>
+          <%= link_to ' Sign Up ', signup_path %> Or
+          <%= link_to ' Log In ', login_path %>
+          <% end %>
+          <p id='notice'><%= notice %></p>
+
+  </div>
+</nav>

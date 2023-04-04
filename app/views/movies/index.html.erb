@@ -1,0 +1,48 @@
+ <style>
+  .item_container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .item_container:hover{
+    transform:scale(1.03)
+  }
+  h1{
+    margin-top:0;
+  }
+ </style>
+ 
+  <% if notice %>
+    <p style="color: green"><%= notice %></p>
+  <% end %>
+<h1 style="text-align: center; border: 1px solid green;background:transparent;"></h1>
+<div id="movies" class="container">
+  <h1 class="heading">Movies</h1>
+  <% @movies.each do |movie| %>
+    <div class="item_container">
+      <div class="item m-2">
+        <% if movie.image.attached?%>
+          <%= image_tag movie.image, height: 100, width: 100 %>
+        <% else %>
+          <%= image_tag "movie.png", height: 100, width: 100 %>
+        <%end%>
+      </div>
+      <div id="item m-2">
+        <strong>Movie Name :</strong> <%= movie.name %><br>
+        <% if movie.user.present? %>
+          <strong>Created by :</strong> <%= movie.user.name%><br>
+        <%end%>
+      </div>
+      <div class="btnn">
+          <%= link_to "Show this movie", movie,class:"nav-link" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="btn btn-success m-2">
+      <% if current_user.present? %>
+        <%= link_to "New movie", new_movie_path, class:"nav-link btn" %>
+      <% else %>
+        <%= link_to "Create Movie", login_path, class:"nav-link btn"%>
+      <%end%> 
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<style>
+  .item{
+    padding:2rem;
+    margin:2px;
+    border:2px solid grey;
+  }
+  .parent{
+    gap:20px 20px;
+    flex-wrap:wrap;
+  }
+</style>
+
+
+<h1>Users List</h1>
+<div class="d-flex justify-content-center parent">
+<%@users.each do |user|%><br>
+<div class="d-flex allign-item-center">
+<div class="btn btn-success m-2">
+<%= link_to user.name, user_path(user),class:"nav-link " %>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+

@@ -1,0 +1,59 @@
+<style>
+  .item{
+    padding:2rem;
+    margin:2px;
+    border:2px solid grey;
+  }
+  .parent{
+    gap:20px 20px;
+    flex-wrap:wrap;
+  }
+</style>
+
+
+<p style="color: green"><%= notice %></p>
+<h1 class="my-3">Reviews</h1>
+
+
+ <%
+=begin%>
+ <div id="reviews">
+  <% @reviews.each do |review| %>
+    <%= "----------_______________----------"%><br>
+    Movie : <%= link_to review.movie.name, controller: "movies", action: "show", id: review.movie_id  %><br>
+    Review : <%= review.review %><br>
+    Rate : <%= review.rate %><br>
+    <div >
+    By This User : <%= link_to review.user.name, controller: "users", action: "show", id: review.user_id %>
+    </div>
+    <p>
+      <%= link_to "Show this Movie", review %>
+    </p>
+  <% end %> 
+<%
+=end%>
+
+
+<%#= link_to "New review", new_review_path %>
+<div class="d-flex justify-content-center parent">
+  <% @movies.each do |movie|%>
+  <div class="item">
+    <div>
+      <strong>Movie : <%= link_to movie.name, controller: "movies", action: "show", id: movie.id %></strong>
+    </div>
+    <% if movie.reviews.present?%>
+    <div class="d-flex allign-item-center">
+      <% movie.reviews.each do |rev| %>
+        Review :  <%= rev.review%><br>
+        Rate : <%= rev.rate%><br>
+        <% if rev.user.present?%>
+        By User : <%= rev.user.name%><br>
+      <% end %>
+      <% end %>
+      <% else %>
+     <span> No Reviews and Rating Yet </span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

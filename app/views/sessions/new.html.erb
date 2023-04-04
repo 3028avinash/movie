@@ -1,0 +1,39 @@
+<style>
+    .email_in{
+        text-transform:none;
+    }
+</style>
+
+<p id='alert'><%= alert %></p>
+<h1 style="text-align:center">Login</h1>
+
+
+<%= form_tag sign_in_path do |form| %>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class='field d-flex flex-column m-2'>
+        <div class>
+            <div style="color:white">
+                <%= label_tag :email %>
+            </div>
+
+            <div class="email_in">
+                <%= text_field_tag :email %>
+            </div>
+        </div>
+
+        <div class='field d-flex flex-column m-2'>
+        <div style="color:white">
+            <%= label_tag :password %>
+        </div>
+        <div>
+            <%= password_field_tag :password %>
+        </div>
+        </div>
+        <div class="btn", style="">
+            <%= submit_tag 'Login' %>
+        </div>
+
+    </div>
+<% end %>
+

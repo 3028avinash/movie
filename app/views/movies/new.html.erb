@@ -1,0 +1,20 @@
+<div style="color: red" class="box">
+    <% if @movie.errors.any? %>
+      <div class="container">
+        <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2> 
+        <ul>
+          <% @movie.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+</div>
+<h1>New movie</h1>
+<div>
+<%= render "form", movie: @movie %>
+
+</div>
+<div>
+  <%= link_to "Back to movies", movies_path %>
+</div>

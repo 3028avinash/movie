@@ -1,0 +1,58 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<div class="d-flex justify-content-center ">
+  <h2> User Details </h2>
+</div>
+<div class="d-flex justify-content-evenly mb-3 mt-2">
+  <div>
+    <strong>Name : </strong> <%= @user.name%> <br>
+  </div>
+
+  <div>
+    <strong>Email : </strong> <%= @user.email%><br>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center my-2">
+    <% if current_user.present? %>
+      <% if current_user.id == @user.id %>
+    <div class="btnn m-2">
+      <%= link_to "Update Your Profile", edit_user_path(@user) %> 
+    </div>
+
+    <div >
+      <%= button_to "Delete Account", @user, method: :delete, class:" btn btn-danger m-2" %>
+    </div>
+      <% end %>
+    <% end %>
+
+    <div class="btnn m-2">
+      <%= link_to "List All User", users_path %>
+    </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-evenly" >
+
+    <div class="d-flex flex-column justify-content-center">
+      <h2> User Movies  </h2>
+        <% @user.movies.each do |u_movie|%>
+        <div class="btn btn-secondary m-2">
+        <%= link_to u_movie.name,controller: "movies", action: "show", id: u_movie.id, class:"nav-link btn" %><br>
+    </div>
+        <%end%>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center ">
+    <h2> User Reviews </h2>
+      <% @user.reviews.each do |u_review|%>
+        Review : <%= u_review.review %> at this
+        <div class="btn btn-success m-2"> 
+        <%= link_to u_review.movie.name, controller: "movies", action: "show", id: u_review.movie_id %><br> 
+        Rate : <%= u_review.rate%> stars at this 
+        <%= link_to u_review.movie.name, controller: "movies", action: "show", id: u_review.movie_id%><br>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+<h1>Create a User</h1>
+<p id='alert'><%= alert %></p>
+
+
+
+<div class="">
+
+    <%= form_with model: @user do |form| %>
+    <%= form.label :Name, style:"" %>
+    <%= form.text_field :name,class:"form-control" %>
+
+    <%= form.label :Email%>
+    <%= form.text_field :email,class:"form-control" %>
+
+    <%= form.label :password%>
+    <%= form.text_field :password,class:"form-control" %>
+        <div class="btn">
+            <%= form.submit "Sign Up"%>
+        </div>
+    <% end%> 
+</div>
+
+
+
+</div>
+    <div class="btn">
+        <%= link_to "Back", home_index_path%>
+    </div>

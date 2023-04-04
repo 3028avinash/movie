@@ -1,0 +1,16 @@
+<div id="<%= dom_id movie %>">
+  <p>
+    <strong>Name:</strong>
+    <%= movie.name %>
+  </p>
+
+  <p>
+    <strong>Movie Created by User:</strong>
+      <%  if movie.user.present? %>
+        <%= movie.user.name %>
+      <% else %>
+        <%= "user_deleted" %>
+      <% end %>
+  </p>
+
+</div>

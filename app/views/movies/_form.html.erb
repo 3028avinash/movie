@@ -1,0 +1,21 @@
+
+<%= form_with(model: movie) do |form| %>
+  
+<div style="m-3">
+  <div style="m-3">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+
+  <div>
+    <%= form.label :image%><br>
+    <%= form.file_field :image%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+</div>
+<% end %>
+</div>
