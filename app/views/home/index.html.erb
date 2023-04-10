@@ -20,6 +20,9 @@
     gap:20px 20px;
     flex-wrap:wrap;
   }
+  a{
+    text-decoration:none;
+  }
 </style>
 
 
@@ -32,14 +35,14 @@
     <div class="box-container">
 <div class="d-flex allign-item-center p-2">
           <% if movie.image.attached?%>
-              <%=image_tag movie.image, height: 200, width: 250 %>
+              <%= link_to (image_tag movie.image, height: 200, width: 250), controller: "movies", action: "show", id: movie.id %>
             <% else %>
               <%=image_tag "movie.png", height: 200, width: 250 %>
           <%end%>
         </div>
         <div>
           <h5>
-            <%= link_to movie.name,class:"nav-link ", controller: "movies", action: "show", id: movie.id %><br>
+            <%= link_to movie.name,class:"", controller: "movies", action: "show", id: movie.id %><br>
             </h5>
           </div>
       </div>

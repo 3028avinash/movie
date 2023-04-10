@@ -21,5 +21,15 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  # <<: *default
+  Host: ec2-3-92-151-217.compute-1.amazonaws.com
+  adapter: postgresql
+  encoding: unicode
+  Database: dbv5qml8bhh527
+  Port: 5432
+  pool: 5
+  username: taxlcxooenmwrm
+  password: a948595dd303f183f4ef69c3c4c40f0a49cf350674c34513e3556ea9542ff6cc
+  # URI: postgres://taxlcxooenmwrm:a948595dd303f183f4ef69c3c4c40f0a49cf350674c34513e3556ea9542ff6cc@ec2-3-92-151-217.compute-1.amazonaws.com:5432/dbv5qml8bhh527
+# Heroku CLI
+# heroku pg:psql postgresql-rugged-92503 --app movie-app-avinsh

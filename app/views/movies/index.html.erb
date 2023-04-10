@@ -22,7 +22,7 @@
     <div class="item_container">
       <div class="item m-2">
         <% if movie.image.attached?%>
-          <%= image_tag movie.image, height: 100, width: 100 %>
+          <%= link_to (image_tag movie.image, height: 100, width: 100), movie %>
         <% else %>
           <%= image_tag "movie.png", height: 100, width: 100 %>
         <%end%>

@@ -1,21 +1,22 @@
 
 <%= form_with(model: movie) do |form| %>
   
-<div style="m-3">
-  <div style="m-3">
+<div class="d-flex flex-column justify-content-center justify-items-center m-3 p-2">
+
+  <div class='field d-flex flex-column m-2'>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
 
   <div>
-    <%= form.label :image%><br>
+    <%= form.label :image%>
     <%= form.file_field :image%>
   </div>
 
-  <div>
+</div>
+  <div class="btn btn-success m-2">
     <%= form.submit %>
   </div>
-</div>
 <% end %>
 </div>

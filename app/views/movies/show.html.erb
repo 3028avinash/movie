@@ -21,6 +21,10 @@
     text-decoration:none; !important;
     color:white; !important;
   }
+  a{
+    text-decoration:none;
+    color:#FFFFFF;
+  }
  </style>
 
 
@@ -40,7 +44,7 @@
 </div>
 
 <div class="d-flex justify-content-center m-3 border:solid 1px">
-        <div class="btn btn-danger revbtn m-3">
+        <div class=" btn btn-success m-3">
           <%= link_to "Add Review", controller: "reviews", action: "new", movie_id: @movie.id %>
         </div>
         <div>
